@@ -21,7 +21,7 @@ set_target_properties(${SDK_LIBRARY_STATIC} #${SDK_LIBRARY_SHARED}
         PROPERTIES
         PUBLIC_HEADER "${LIVOX_API_HEADER}"
         )
-
+find_package(catkin REQUIRED)
 if(WIN32)
   set(PLATFORM win)
 else(WIN32)
@@ -133,6 +133,7 @@ target_sources(${SDK_LIBRARY_SHARED}
         )
 
 install(TARGETS ${SDK_LIBRARY_STATIC} ${SDK_LIBRARY_SHARED}
+	DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
         PUBLIC_HEADER DESTINATION include
         ARCHIVE DESTINATION lib
         LIBRARY DESTINATION lib)
